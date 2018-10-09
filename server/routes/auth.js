@@ -8,11 +8,7 @@ const bcryptSalt = 10;
 
 const login = (req, user) => {
   return new Promise((resolve,reject) => {
-    req.login(user, err => {
-      console.log('req.login ')
-      console.log(user)
-
-      
+    req.login(user, err => {  
       if(err) {
         reject(new Error('Something went wrong'))
       }else{
