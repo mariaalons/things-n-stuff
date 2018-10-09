@@ -4,7 +4,7 @@ const Schema   = mongoose.Schema;
 const listSchema = new Schema({
   userId: String,
   name: String,
-  image: String
+  icon: String
 }, {
   timestamps: {
     createdAt: 'created_at',
