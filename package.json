@@ -1,0 +1,19 @@
+{
+  "name": "things-n-stuff",
+  "version": "1.0.0",
+  "description": "web app to make and share list og things and stuff",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariaalons/things-n-stuff.git"
+  },
+  "author": "maria alonso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mariaalons/things-n-stuff/issues"
+  },
+  "homepage": "https://github.com/mariaalons/things-n-stuff#readme"
+}
