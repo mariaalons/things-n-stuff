@@ -7,8 +7,8 @@ class Private {
       withCredentials: true
     });
   }
-  profile = (user, name, icon) => {
-    return this.service.post('/list', {user, name, icon})
+  profile = (userId, name, icon) => {
+    return this.service.post('/list', {userId, name, icon})
     .then(response => response.data)
   }
 }

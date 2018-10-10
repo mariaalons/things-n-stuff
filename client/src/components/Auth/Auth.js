@@ -19,7 +19,7 @@ class Auth {
   }
 
   loggedin = () => {
-    return this.service.get('/profile',)
+    return this.service.get('/currentuser',)
     .then(response => response.data)
   }
 

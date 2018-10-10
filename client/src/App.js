@@ -55,7 +55,7 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
-          
+            <ListForm getUser={this.getTheUser} userInSession={this.state.loggedInUser}/>
           </header>
         </div>
       );
@@ -67,7 +67,7 @@ class App extends Component {
             <Switch>
               <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
               <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
-              <Route exact path='/profile' render={() => <ListForm getUser={this.getTheUser}/>}/>
+             
             </Switch>
           </header>
         </div>

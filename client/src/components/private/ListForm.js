@@ -10,7 +10,7 @@ class List extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const userId = "";
+    const userId = this.props.userInSession._id;
     const name = this.state.name;
     const icon = this.state.icon;
 
@@ -36,7 +36,6 @@ class List extends Component {
     return(
       <div>
         <h3>Time to create lists</h3>
-
         <form onSubmit={this.handleFormSubmit}>
           <fieldset>
             <label>name:</label>

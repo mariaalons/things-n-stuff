@@ -13,10 +13,9 @@ router.post('/profile/list', (req, res, next) => {
   } = req.body;
   console.log(req.body)
 
-  const userID = req.user;
   console.log(req.user)
   const newList = new List({
-    userId: userID,
+    userId,
     name,
     icon
   }).save()

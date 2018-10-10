@@ -61,7 +61,7 @@ router.post('/login', (req, res, next) => {
   })(req, res, next);
 });
 
-router.get('/profile', (req,res,next) => {
+router.get('/currentuser', (req,res,next) => {
   if(req.user){
     res.status(200).json(req.user);
   }else{
