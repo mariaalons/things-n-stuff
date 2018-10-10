@@ -68,7 +68,8 @@ require('./passport')(app);
     
 
 const authRoutes = require('./routes/auth');
+const privateRoutes = require('./routes/private');
 app.use('/auth', authRoutes);
-      
+app.use('/', privateRoutes);
 
 module.exports = app;

@@ -5,7 +5,8 @@ import Navbar from './components/navbar/Navbar';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
 import Auth from './components/auth/Auth';
-
+import Private from './components/private/Private';
+import ListForm from './components/private/ListForm';
 
 class App extends Component {
 
@@ -13,7 +14,9 @@ class App extends Component {
     super(props)
     this.state = { loggedInUser: null };
     this.service = new Auth();
+    this.private = new Private();
   }
+
 
   getTheUser= (userObj) => {
     this.setState({
@@ -64,6 +67,7 @@ class App extends Component {
             <Switch>
               <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
               <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
+              <Route exact path='/profile' render={() => <ListForm getUser={this.getTheUser}/>}/>
             </Switch>
           </header>
         </div>
