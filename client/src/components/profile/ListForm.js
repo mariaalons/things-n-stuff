@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Private from './Private'
 
-class List extends Component {
+class Form extends Component {
   constructor(props) {
     super(props);
     this.state = { userId: '', name: '', icon:'' };
@@ -47,7 +47,8 @@ class List extends Component {
           </fieldset>
           <input type="submit" value="Create" />
         </form>
-
+        <button>Add new category</button>
+        <button>Add new Item</button>
       </div>
     )
   }
@@ -55,4 +56,4 @@ class List extends Component {
 
 
 
-export default List;
+export default Form;

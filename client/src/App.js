@@ -5,8 +5,8 @@ import Navbar from './components/navbar/Navbar';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
 import Auth from './components/auth/Auth';
-import Private from './components/private/Private';
-import ListForm from './components/private/ListForm';
+import Private from './components/profile/Private';
+import Profile from './components/profile/Profile';
 
 class App extends Component {
 
@@ -55,7 +55,9 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
-            <ListForm getUser={this.getTheUser} userInSession={this.state.loggedInUser}/>
+            <Switch>
+            <Route exact path='/profile' render={() => <Profile getUser={this.getTheUser} userInSession={this.state.loggedInUser}/>}/>
+            </Switch>
           </header>
         </div>
       );
@@ -63,11 +65,10 @@ class App extends Component {
       return (
         <div className="App">
           <header className="App-header">
-            <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
+            <Navbar  logout={this.logout} />
             <Switch>
               <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
               <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
-             
             </Switch>
           </header>
         </div>
