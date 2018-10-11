@@ -39,11 +39,11 @@ class Form extends Component {
         <form onSubmit={this.handleFormSubmit}>
           <fieldset>
             <label>name:</label>
-            <input type="text" name="name" value={this.state.username} onChange={ e => this.handleChange(e)}/>
+            <input type="text" name="name" value={this.state.name} onChange={ e => this.handleChange(e)}/>
           </fieldset>
           <fieldset>
             <label>icon:</label>
-            <input type="icon" name="icon" value={this.state.email} onChange={ e => this.handleChange(e)}/>
+            <input type="icon" name="icon" value={this.state.icon} onChange={ e => this.handleChange(e)}/>
           </fieldset>
           <input type="submit" value="Create" />
         </form>

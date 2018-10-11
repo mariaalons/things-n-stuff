@@ -29,7 +29,7 @@ router.get('/profile/list', (req, res, next) => {
   List.find(req.user)
   .then(data => res.status(200).json(data))
   .catch(e => next(e))
-})
+}) 
 
 
 
