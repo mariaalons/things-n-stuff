@@ -6,7 +6,7 @@ const itemSchema = new Schema({
   categoryId:{type:String, default:""},
   name: String,
   description: String,
-  image: String
+  image: {type:String, default:""}
 }, {
   timestamps: {
     createdAt: 'created_at',

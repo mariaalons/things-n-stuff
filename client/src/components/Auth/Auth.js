@@ -3,7 +3,7 @@ import axios from 'axios';
 class Auth {
   constructor() {
     this.service = axios.create({
-      baseURL: 'http://localhost:3001/auth',
+      baseURL: 'http://localhost:3001/api/auth',
       withCredentials: true
     });
   }

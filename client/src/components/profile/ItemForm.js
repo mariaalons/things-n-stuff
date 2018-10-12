@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import Private from './Private'
 
-class Form extends Component {
+class ItemForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { userId: '', name: '', icon:'' };
+    this.state = { listId: '', name: '', description:'' };
     this.service = new Private();
   }
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const userId = this.props.userInSession._id;
+    const listId = this.props.list._id;
     const name = this.state.name;
-    const icon = this.state.icon;
+    const description = this.state.icon;
 
-    this.service.profile(userId, name, icon)
+    this.service.profile(listId, name, description)
     .then( response => {
         this.setState({
-            userId: "",
+            listId: "",
             name:"", 
-            icon: "",
+            description: "",
         });
         this.props.getUser(response.user)
     })
@@ -28,24 +28,24 @@ class Form extends Component {
 
   handleChange = (event) => {  
     const {name, value} = event.target;
-    this.setState({[name]: value});
+    this.setState({[name]: value, description: value});
   }
       
 
   render() {
     return(
       <div>
-        <h3>Time to create lists</h3>
+        <h3>Add an item to this list</h3>
         <form onSubmit={this.handleFormSubmit}>
           <fieldset>
             <label>name:</label>
             <input type="text" name="name" value={this.state.name} onChange={ e => this.handleChange(e)}/>
           </fieldset>
           <fieldset>
-            <label>icon:</label>
-            <input type="icon" name="icon" value={this.state.icon} onChange={ e => this.handleChange(e)}/>
+            <label>description:</label>
+            <input type="text" name="description" value={this.state.description} onChange={ e => this.handleChange(e)}/>
           </fieldset>
-          <input onClick={() =>this.props.toggleForm()} type="submit" value="Create" />
+          <input type="submit" value="Create" />
         </form>
       </div>
     )
@@ -54,4 +54,4 @@ class Form extends Component {
 
 
 
-export default Form;
+export default ItemForm;

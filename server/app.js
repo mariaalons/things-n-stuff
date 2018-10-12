@@ -50,10 +50,6 @@ app.use(require('node-sass-middleware')({
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-  
-
-// default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
 
 
 // Enable authentication using session + passport
@@ -69,7 +65,7 @@ require('./passport')(app);
 
 const authRoutes = require('./routes/auth');
 const privateRoutes = require('./routes/private');
-app.use('/auth', authRoutes);
-app.use('/', privateRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/profile', privateRoutes);
 
 module.exports = app;

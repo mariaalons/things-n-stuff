@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import Auth from '../auth/Auth'
-import Lists from '../print/Lists'
+import Lists from './Lists'
 import ListForm from './ListForm'
 
 class Profile extends Component {
   constructor(props) {
     super(props);
-    this.state = { loggedInUser: null };
+    this.state = { loggedInUser: null ,
+    hidden:true};
     this.service = new Auth();
   }
 
@@ -33,17 +34,21 @@ class Profile extends Component {
       })
     }
   }
-
+  toggleForm(){
+    const hidden = !this.state.hidden
+    this.setState({hidden:hidden})
+  }
   render() {
     this.fetchUser()
   
       return (
-      <nav className="nav-style">
-        
-          <button><Link to='/list'>Create new list</Link></button>
-          <Lists/>
-          <ListForm userInSession={this.state.loggedInUser}/>      
-      </nav>
+  
+          <div>
+          <button onClick={() => this.toggleForm()}>Create new list</button>
+         <div hidden={this.state.hidden}><ListForm toggleForm={() => this.toggleForm()} userInSession={this.state.loggedInUser} getUser={this.getTheUser}/></div>
+          <Lists/>  
+          </div> 
+   
     )
 }
 }
