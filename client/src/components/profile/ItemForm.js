@@ -12,7 +12,7 @@ class ItemForm extends Component {
     event.preventDefault();
     const listId = this.props.listid;
     const name = this.state.name;
-    const description = this.state.icon;
+    const description = this.state.description;
 
     this.service.item(listId, name, description)
     .then( response => {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Private from './Private'
 import ItemForm from './ItemForm'
+import Items from './Item'
 
 class Lists extends Component {
   constructor(props) {
@@ -36,6 +37,9 @@ class Lists extends Component {
             <div>
               <h3>{list.name}</h3>
               <span>{list.icon}</span>
+              </div>
+              <div>
+                <Items listid={list._id}/>
               </div>
               <button>Add new category</button>
               <button onClick={() => this.toggleForm(list._id)}>Add new Item</button>

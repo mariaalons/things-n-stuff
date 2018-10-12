@@ -47,10 +47,11 @@ router.post('/item', (req, res, next) => {
 .catch(e => next(e))
 })
 
-// router.get('/item', (req, res, next) => {
-//   Item.find(req.list._id)
-//   .then(data => res.status(200).json(data))
-//   .catch(e => next(e))
-// }) 
+router.get('/item/:listId', (req, res, next) => {
+  
+  Item.find({listId: req.params.listId})
+  .then(data => res.status(200).json(data))
+  .catch(e => next(e))
+}) 
 
 module.exports = router;
