@@ -13,7 +13,7 @@ class Private {
   }
   showList = () => {
     return this.service.get('/list')
-    .then(response => { console.log(response)
+    .then(response => { 
       return response.data})
   }
   

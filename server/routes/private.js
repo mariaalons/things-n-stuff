@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const {ensureLoggedIn, ensureLoggedOut} = require('connect-ensure-login');
 const _ = require('lodash');
 const List = require('../models/List')
 
@@ -11,9 +10,7 @@ router.post('/list', (req, res, next) => {
     name,
     icon
   } = req.body;
-  console.log(req.body)
-
-  console.log(req.user)
+  
   const newList = new List({
     userId,
     name,
@@ -31,7 +28,7 @@ router.get('/list', (req, res, next) => {
   .catch(e => next(e))
 }) 
 
-router.post('/list/item', (req, res, next) => {
+router.post('/item', (req, res, next) => {
   const {
     listId,
     name,
@@ -46,13 +43,13 @@ router.post('/list/item', (req, res, next) => {
     descrption
   }).save()
   .then(Item => res.status(200).json({
-    status: 'List created',
+    status: 'Item created',
   }))
 .catch(e => next(e))
 })
 
-router.get('/list/Item', (req, res, next) => {
-  Item.find(req.list.id)
+router.get('/item', (req, res, next) => {
+  Item.find(req.list._id)
   .then(data => res.status(200).json(data))
   .catch(e => next(e))
 }) 

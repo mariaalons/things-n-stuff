@@ -1,38 +1,45 @@
 import React, { Component } from 'react';
 import Private from './Private'
+import ItemForm from './ItemForm'
 
 class Lists extends Component {
   constructor(props) {
     super(props);
-    this.state = { list : null};
+    this.state = { list : null, hidden:true};
     this.service = new Private();
   }
 
   componentDidMount() {
     this.service.showList()
       .then(res => {
-        console.log(res)
-        const list = res;
         this.setState({ list : [...res]});
       })
+  }
+
+  toggleForm(){
+    const hidden = !this.state.hidden
+    this.setState({hidden:hidden})
   }
 
   render() {
     return (
       this.state.list ?
-      <ul>
+      <div>
         {this.state.list.map(list => {
           return (
+            <div key={list.name}>
             <div>
-              <li>{list.name}</li>
-              <span role="img" aria-label={list.icon}>{list.icon}</span>
+              <h3>{list.name}</h3>
+              <span>{list.icon}</span>
+              </div>
               <button>Add new category</button>
-              <button>Add new Item</button>
+              <button listid={list._id} onClick={() => this.toggleForm()}>Add new Item</button>
+              <div hidden={this.state.hidden}><ItemForm toggleForm={() => this.toggleForm()} userInSession={this.state.loggedInUser} getUser={this.getTheUser}/></div>
             </div>
           )
         })
         }
-      </ul>
+      </div>
       : <p>Loading..</p>
     )
   }
