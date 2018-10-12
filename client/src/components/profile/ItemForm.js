@@ -10,25 +10,24 @@ class ItemForm extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const listId = this.props.list._id;
+    const listId = this.props.listid;
     const name = this.state.name;
     const description = this.state.icon;
 
-    this.service.profile(listId, name, description)
+    this.service.item(listId, name, description)
     .then( response => {
         this.setState({
             listId: "",
             name:"", 
             description: "",
         });
-        this.props.getUser(response.user)
     })
     .catch( error => console.log(error) )
   }
 
   handleChange = (event) => {  
     const {name, value} = event.target;
-    this.setState({[name]: value, description: value});
+    this.setState({[name]: value});
   }
       
 

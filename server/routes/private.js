@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const _ = require('lodash');
 const List = require('../models/List')
+const Item = require('../models/Item')
 
 
 router.post('/list', (req, res, next) => {
@@ -32,15 +32,14 @@ router.post('/item', (req, res, next) => {
   const {
     listId,
     name,
-    descrption
+    description
   } = req.body;
   console.log(req.body)
-
-  console.log(req.list)
+ 
   const newItem = new Item({
     listId,
     name,
-    descrption
+    description
   }).save()
   .then(Item => res.status(200).json({
     status: 'Item created',
@@ -48,10 +47,10 @@ router.post('/item', (req, res, next) => {
 .catch(e => next(e))
 })
 
-router.get('/item', (req, res, next) => {
-  Item.find(req.list._id)
-  .then(data => res.status(200).json(data))
-  .catch(e => next(e))
-}) 
+// router.get('/item', (req, res, next) => {
+//   Item.find(req.list._id)
+//   .then(data => res.status(200).json(data))
+//   .catch(e => next(e))
+// }) 
 
 module.exports = router;

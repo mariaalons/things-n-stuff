@@ -16,7 +16,11 @@ class Private {
     .then(response => { 
       return response.data})
   }
-  
+  item = (listId, name, description) => {
+    return this.service.post('/item', {listId, name, description})
+    .then(response => {
+      return response.data})
+  }
 }
 
 

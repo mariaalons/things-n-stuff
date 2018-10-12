@@ -5,20 +5,25 @@ import ItemForm from './ItemForm'
 class Lists extends Component {
   constructor(props) {
     super(props);
-    this.state = { list : null, hidden:true};
+    this.state = { list : null, hidden:{}};
     this.service = new Private();
   }
 
   componentDidMount() {
     this.service.showList()
       .then(res => {
-        this.setState({ list : [...res]});
+        const list = [...res]
+        const hidden = {};
+        list.forEach(e => hidden[e._id] = true)
+        this.setState({ list , hidden});
       })
   }
 
-  toggleForm(){
-    const hidden = !this.state.hidden
-    this.setState({hidden:hidden})
+  toggleForm(id){
+    const _hidden = {...this.state.hidden}
+
+    _hidden[id] = !_hidden[id]
+    this.setState({hidden:_hidden})
   }
 
   render() {
@@ -33,8 +38,8 @@ class Lists extends Component {
               <span>{list.icon}</span>
               </div>
               <button>Add new category</button>
-              <button listid={list._id} onClick={() => this.toggleForm()}>Add new Item</button>
-              <div hidden={this.state.hidden}><ItemForm toggleForm={() => this.toggleForm()} userInSession={this.state.loggedInUser} getUser={this.getTheUser}/></div>
+              <button onClick={() => this.toggleForm(list._id)}>Add new Item</button>
+              <div hidden={this.state.hidden[list._id]}><ItemForm toggleForm={() => this.toggleForm(list._id)} listid={list._id}/></div>
             </div>
           )
         })
