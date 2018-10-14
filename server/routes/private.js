@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const List = require('../models/List')
 const Item = require('../models/Item')
+const Category = require('../models/Category')
 
 
 router.post('/list', (req, res, next) => {
@@ -34,7 +35,6 @@ router.post('/item', (req, res, next) => {
     name,
     description
   } = req.body;
-  console.log(req.body)
  
   const newItem = new Item({
     listId,
@@ -53,5 +53,23 @@ router.get('/item/:listId', (req, res, next) => {
   .then(data => res.status(200).json(data))
   .catch(e => next(e))
 }) 
+
+router.post('/category', (req, res, next) => {
+  const {
+    listId,
+    name,
+    icon
+  } = req.body;
+  
+  const newCategory = new Category({
+    listId,
+    name,
+    icon
+  }).save()
+  .then(Category => res.status(200).json({
+    status: 'Category created',
+  }))
+.catch(e => next(e))
+})
 
 module.exports = router;
