@@ -37,7 +37,6 @@ class Signup extends Component {
 
   handleChangeFile = (event) => {  
     const value= event.target.files[0]
-    console.log(value)
     this.setState({'photo': value});
   }
       

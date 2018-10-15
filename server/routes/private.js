@@ -1,4 +1,4 @@
-
+const uploadCloud= require('../config/cloudinary');
 const express = require('express');
 const router = express.Router();
 const List = require('../models/List')
@@ -30,17 +30,18 @@ router.get('/list', (req, res, next) => {
   .catch(e => next(e))
 }) 
 
-router.post('/item', (req, res, next) => {
+router.post('/item',uploadCloud.single('photo'), (req, res, next) => {
   const {
     listId,
     name,
     description
   } = req.body;
- 
+  const image = req.file.url;
   const newItem = new Item({
     listId,
     name,
-    description
+    description,
+    image
   }).save()
   .then(Item => res.status(200).json({
     status: 'Item created',

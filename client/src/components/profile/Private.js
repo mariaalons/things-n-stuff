@@ -16,8 +16,13 @@ class Private {
     .then(response => { 
       return response.data})
   }
-  item = (listId, name, description) => {
-    return this.service.post('/item', {listId, name, description})
+  item = (listId, name, description, image) => {
+    const formData = new FormData();
+    formData.append("photo", image)
+    formData.append("listId", listId)
+    formData.append("name", name)
+    formData.append("description", description)
+    return this.service.post('/item', formData, {headers: {'Content-Type': 'multipart/form-data'}})
     .then(response => {
       return response.data})
   }

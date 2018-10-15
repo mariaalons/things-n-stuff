@@ -13,13 +13,16 @@ class ItemForm extends Component {
     const listId = this.props.listid;
     const name = this.state.name;
     const description = this.state.description;
+    const photo = this.state.photo;
 
-    this.service.item(listId, name, description)
+
+    this.service.item(listId, name, description, photo)
     .then( response => {
         this.setState({
             listId: "",
             name:"", 
             description: "",
+            photo: null
         });
     })
     .catch( error => console.log(error) )
@@ -28,6 +31,11 @@ class ItemForm extends Component {
   handleChange = (event) => {  
     const {name, value} = event.target;
     this.setState({[name]: value});
+  }
+
+  handleChangeFile = (event) => {  
+    const value= event.target.files[0]
+    this.setState({'photo': value});
   }
       
 
@@ -44,6 +52,10 @@ class ItemForm extends Component {
             <label>description:</label>
             <input type="text" name="description" value={this.state.description} onChange={ e => this.handleChange(e)}/>
           </fieldset>
+          <fieldset>
+          <input type="file" name="photo" value={this.state.image} onChange={ e => this.handleChangeFile(e)}/>
+          </fieldset>
+      
           <input type="submit" value="Create" />
         </form>
       </div>

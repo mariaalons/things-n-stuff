@@ -23,6 +23,7 @@ class Items extends Component {
           return (
             <div key={item.name}>
               <h3>{item.name}</h3>
+              <img src={item.image} alt={item.name}/>
               <p>{item.description}</p>  
             </div>
           )
