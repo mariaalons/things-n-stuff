@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Private from './Private'
+import Category from './Category'
+import CardMedia from '@material-ui/core/CardMedia'
 
 class Items extends Component {
   constructor(props) {
@@ -15,25 +17,31 @@ class Items extends Component {
       })
   }
 
+
   render() {
     return (
       this.state.item ?
-      <div>
-        {this.state.item.map(item => {
-          return (
-            <div key={item.name}>
-              <h3>{item.name}</h3>
-              <img src={item.image} alt={item.name}/>
-              <p>{item.description}</p>  
-            </div>
-          )
-        })
-        }
-      </div>
-      : <p>Loading..</p>
+        <div>
+          {this.state.item.map(item => {
+            return (
+             
+              <div key={item.name}>
+                <h3>{item.name}</h3>
+                <img src={item.image} alt={item.name} />
+                <p>{item.description}</p>
+                {/* select button with categories */}
+                {/* <button itemId={}>Add item to category</button> */}
+               <Category listid={this.props.listid}/>
+              </div>
+              
+            )
+          })
+          }
+        </div>
+        : <p>Loading..</p>
     )
   }
 }
 
-
+      
 export default Items;

@@ -59,13 +59,15 @@ router.post('/category', (req, res, next) => {
   const {
     listId,
     name,
-    icon
+    icon,
+    items
   } = req.body;
   
   const newCategory = new Category({
     listId,
     name,
-    icon
+    icon,
+    items
   }).save()
   .then(Category => res.status(200).json({
     status: 'Category created',
@@ -73,10 +75,10 @@ router.post('/category', (req, res, next) => {
 .catch(e => next(e))
 })
 
-// router.get('/category/:listId', (req, res, next) => {
-//   Category.find({listId: req.params.listId})
-//   .then(data => res.status(200).json(data))
-//   .catch(e => next(e))
-// }) 
+router.get('/category/:listId', (req, res, next) => {
+  Category.find({listId: req.params.listId})
+  .then(data => res.status(200).json(data))
+  .catch(e => next(e))
+}) 
 
 module.exports = router;

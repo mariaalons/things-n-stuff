@@ -3,7 +3,6 @@ const Schema   = mongoose.Schema;
 
 const itemSchema = new Schema({
   listId: String,
-  categoryId:{type:String, default:""},
   name: String,
   description: String,
   image: {type:String, default:""}

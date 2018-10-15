@@ -32,10 +32,9 @@ class Private {
       return response.data})
   }
 
-  category = (listId, name, icon) => {
-    return this.service.post('/category', {listId, name, icon})
+  category = (listId, name, icon, items) => {
+    return this.service.post('/category', {listId, name, icon, items})
     .then(res => {
-      console.log(res)
       return res.data})
   }
 
