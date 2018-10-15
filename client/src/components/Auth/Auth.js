@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 class Auth {
   constructor() {
     this.service = axios.create({
@@ -8,8 +9,15 @@ class Auth {
     });
   }
 
-  signup = (username, password, email) => {
-    return this.service.post('/signup', {username, password, email})
+  signup = (username, password, email, image) => {
+    console.log(image)
+
+    const formData = new FormData();
+    formData.append("username", username)
+    formData.append("email", email)
+    formData.append("password", password)
+      formData.append("photo", image)
+    return this.service.post('/signup', formData, {headers: {'Content-Type': 'multipart/form-data'}})
     .then(response => response.data)
   }
 

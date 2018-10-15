@@ -1,3 +1,4 @@
+const uploadCloud= require('../config/cloudinary');
 const express = require('express');
 const passport = require('passport');
 const router = express.Router();
@@ -18,12 +19,19 @@ const login = (req, user) => {
 }
 
 
-router.post("/signup", (req, res, next) => {
+router.post("/signup", uploadCloud.single('photo'), (req, res, next) => {
   const {
     username,
     email,
     password
   } = req.body
+ 
+   const image = req.file.url;
+   console.log(username,
+    email,
+    password,
+    image
+    )
   if (!username || !password) {
     next(new Error('You must provide valid credentials'));
   }
@@ -40,7 +48,8 @@ router.post("/signup", (req, res, next) => {
       const newUser = new User({
         username,
         email,
-        password: hashPass
+        password: hashPass,
+        image
       }).save()
       .then(newUser => login(req, newUser))
       .then(user => res.json({
@@ -50,6 +59,7 @@ router.post("/signup", (req, res, next) => {
     })
     .catch(e => next(e));
 });
+
 
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', (err, theUser, failureDetails) => {

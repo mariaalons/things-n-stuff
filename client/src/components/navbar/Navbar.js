@@ -30,6 +30,7 @@ class Navbar extends Component {
           </ul>
 
           <h2>Hi there {this.state.loggedInUser.username}</h2>
+          <img src={this.state.loggedInUser.image} alt={this.state.loggedInUser.username}/>
         </nav>
       )
     } else {

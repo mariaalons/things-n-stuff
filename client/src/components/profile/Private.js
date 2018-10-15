@@ -24,7 +24,18 @@ class Private {
   showItem = (listId) => {
     return this.service.get(`/item/${listId}`)
     .then(response => { 
-      console.log(response)
+      return response.data})
+  }
+
+  category = (listId, name, icon) => {
+    return this.service.post('/category', {listId, name, icon})
+    .then(res => {
+      return res.data})
+  }
+
+  showCategory = (listId) => {
+    return this.service.get(`/category/${listId}`)
+    .then(response => { 
       return response.data})
   }
 }

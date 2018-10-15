@@ -1,4 +1,5 @@
 require('dotenv').config();
+require('./config/cloudinary');
 
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -11,6 +12,7 @@ const cors = require('cors');
 const session = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash = require("connect-flash");
+
 
 
 mongoose
