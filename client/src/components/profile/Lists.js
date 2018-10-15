@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Private from './Private'
 import ItemForm from './ItemForm'
+import CategoryForm from './CategoryForm'
 import Items from './Item'
 
 class Lists extends Component {
@@ -41,9 +42,10 @@ class Lists extends Component {
               <div>
                 <Items listid={list._id}/>
               </div>
-              <button>Add new category</button>
+              <button onClick={() => this.toggleForm(list._id)}>Add new category</button>
               <button onClick={() => this.toggleForm(list._id)}>Add new Item</button>
               <div hidden={this.state.hidden[list._id]}><ItemForm toggleForm={() => this.toggleForm(list._id)} listid={list._id}/></div>
+              <div hidden={this.state.hidden[list._id]}><CategoryForm toggleForm={() => this.toggleForm(list._id)} listid={list._id}/></div>
             </div>
           )
         })

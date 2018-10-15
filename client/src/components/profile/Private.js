@@ -35,6 +35,7 @@ class Private {
   category = (listId, name, icon) => {
     return this.service.post('/category', {listId, name, icon})
     .then(res => {
+      console.log(res)
       return res.data})
   }
 
