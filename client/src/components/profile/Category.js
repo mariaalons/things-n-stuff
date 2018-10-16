@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+
 import Private from './Private'
-import CardMedia from '@material-ui/core/CardMedia'
 
 class Categories extends Component {
   constructor(props) {
@@ -15,26 +15,31 @@ class Categories extends Component {
         this.setState({ categories: [...res]});
       })
   }
+  
+  
+
 
 
   render() {
     return (
       this.state.categories ?
         <div>
+        
           {this.state.categories.map(categories => {
             return (
-             <button>Add to
+             
               <div key={categories.name}>
-                <h3>{categories.name}</h3>
+                <h3 style={{color : 'red'}}>{categories.name}</h3>
                 <span>{categories.icon}</span>
-                
               </div>
-              </button>
+        
               
             )
           })
           }
+         
         </div>
+      
         : <p>Loading..</p>
     )
   }

@@ -33,12 +33,14 @@ router.get('/list', (req, res, next) => {
 router.post('/item',uploadCloud.single('photo'), (req, res, next) => {
   const {
     listId,
+    categoryId,
     name,
     description
   } = req.body;
   const image = req.file.url;
   const newItem = new Item({
     listId,
+    categoryId,
     name,
     description,
     image
@@ -59,15 +61,13 @@ router.post('/category', (req, res, next) => {
   const {
     listId,
     name,
-    icon,
-    items
+    icon
   } = req.body;
   
   const newCategory = new Category({
     listId,
     name,
     icon,
-    items
   }).save()
   .then(Category => res.status(200).json({
     status: 'Category created',

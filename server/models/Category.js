@@ -5,7 +5,6 @@ const categorySchema = new Schema({
   listId: String,
   name: String,
   icon: String,
-  items: []
 }, {
   timestamps: {
     createdAt: 'created_at',

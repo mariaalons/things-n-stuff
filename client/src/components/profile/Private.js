@@ -16,24 +16,25 @@ class Private {
     .then(response => { 
       return response.data})
   }
-  item = (listId, name, description, image) => {
+  item = (listId, categoryId, name, description, image) => {
     const formData = new FormData();
     formData.append("photo", image)
     formData.append("listId", listId)
+    formData.append("categoryId", categoryId)
     formData.append("name", name)
     formData.append("description", description)
     return this.service.post('/item', formData, {headers: {'Content-Type': 'multipart/form-data'}})
     .then(response => {
       return response.data})
   }
-  showItem = (listId) => {
+  showItem = (listId, categoryId) => {
     return this.service.get(`/item/${listId}`)
     .then(response => { 
       return response.data})
   }
 
-  category = (listId, name, icon, items) => {
-    return this.service.post('/category', {listId, name, icon, items})
+  category = (listId, name, icon) => {
+    return this.service.post('/category', {listId, name, icon})
     .then(res => {
       return res.data})
   }

@@ -24,10 +24,10 @@ class Navbar extends Component {
     if (this.state.loggedInUser) {
       return (
         <nav className="nav-style">
-          <ul>
-            <li><a onClick={this.handleLogout}>Logout</a></li>
-            <li><Link to='/profile'>profile</Link></li>
-          </ul>
+          <div>
+            <a onClick={this.handleLogout}>Logout</a>
+            <Link to='/profile'>profile</Link>
+          </div>
 
           <h2>Hi there {this.state.loggedInUser.username}</h2>
           <img src={this.state.loggedInUser.image} alt={this.state.loggedInUser.username}/>
@@ -37,10 +37,10 @@ class Navbar extends Component {
       return (
         <div>
           <nav className="nav-style">
-            <ul>
-            <li><Link to='/signup'>Signup</Link></li>
-            <li><Link to='/login'>Login</Link></li>
-            </ul>
+            <div>
+            <Link to='/signup'>Signup</Link>
+            <Link to='/login'>Login</Link>
+            </div>
           </nav>
         </div>
       )

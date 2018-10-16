@@ -11,6 +11,7 @@ class ItemForm extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     const listId = this.props.listid;
+    
     const name = this.state.name;
     const description = this.state.description;
     const photo = this.state.photo;
@@ -20,6 +21,7 @@ class ItemForm extends Component {
     .then( response => {
         this.setState({
             listId: "",
+          
             name:"", 
             description: "",
             photo: null
