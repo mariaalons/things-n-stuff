@@ -81,4 +81,11 @@ router.get('/category/:listId', (req, res, next) => {
   .catch(e => next(e))
 }) 
 
+router.put('/item/:itemId', (req, res, next) => {
+  Item.findByIdAndUpdate(req.params.itemId,{"categoryId": req.body.categoryId})
+  .then(data => res.status(200).json(data))
+  .catch(e => next(e))
+}) 
+
+
 module.exports = router;

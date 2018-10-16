@@ -4,12 +4,19 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import Auth from '../auth/Auth'
 import Lists from './Lists'
 import ListForm from './ListForm'
+import Private from './Private'
+
+
+
 
 class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = { loggedInUser: null ,
-    hidden:true};
+    hidden:true,
+    
+  };
+    this.route = new Private();
     this.service = new Auth();
   }
 
@@ -39,9 +46,18 @@ class Profile extends Component {
     const hidden = !this.state.hidden
     this.setState({hidden:hidden})
   }
-  onDragEnd = () => {
-   
-  };
+
+ 
+
+  onDragEnd = (result) => {
+    let itemId = result.draggableId
+    let newCategoryId = result.destination.droppableId;
+    this.route.updateCategory(itemId,newCategoryId)
+    
+
+  }
+
+
   render() {
     this.fetchUser()
   

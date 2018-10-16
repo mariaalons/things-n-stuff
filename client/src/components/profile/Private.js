@@ -43,6 +43,12 @@ class Private {
     .then(response => { 
       return response.data})
   }
+
+  updateCategory = (itemId,categoryId) => {
+    return this.service.put(`/item/${itemId}`,{categoryId})
+    .then(response => { 
+      return response.data})
+  }
 }
 
 

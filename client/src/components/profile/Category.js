@@ -51,9 +51,10 @@ class Categories extends Component {
                 <Items categoryid={categories._id}/>
                 </div>
                 </div>
-              
+             
                  </div>
                 )}
+                
                   </Droppable>
                   <button onClick={() => this.toggleForm(categories._id)}>Add new Item</button>
                    <div hidden={this.state.hidden[categories._id]}><ItemForm toggleForm={() => this.toggleForm(categories._id)} categoryid={categories._id}/></div>

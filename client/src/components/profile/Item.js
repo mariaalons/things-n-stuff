@@ -14,7 +14,6 @@ class Items extends Component {
       .then(res => {  
         this.setState({ item: [...res]});
       })
-      console.log(this.props)
   }
 
 
@@ -30,12 +29,15 @@ class Items extends Component {
                   <div
                     ref={provided.innerRef}
                     {...provided.draggableProps}
-                    {...provided.dragHandleProps}>
+                    {...provided.dragHandleProps}
+                    >
                     <h3>{item.name}</h3>
                     <img src={item.image} alt={item.name} />
                     <p>{item.description}</p>
                   </div>
+                
                 )}
+                
               </Draggable>
 
             )
