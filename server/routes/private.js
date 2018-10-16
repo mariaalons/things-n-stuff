@@ -9,12 +9,14 @@ const Category = require('../models/Category')
 router.post('/list', (req, res, next) => {
   const {
     userId,
+    categoriesId,
     name,
     icon
   } = req.body;
   
   const newList = new List({
     userId,
+    categoriesId,
     name,
     icon
   }).save()
@@ -32,14 +34,12 @@ router.get('/list', (req, res, next) => {
 
 router.post('/item',uploadCloud.single('photo'), (req, res, next) => {
   const {
-    listId,
     categoryId,
     name,
     description
   } = req.body;
   const image = req.file.url;
   const newItem = new Item({
-    listId,
     categoryId,
     name,
     description,
@@ -51,8 +51,8 @@ router.post('/item',uploadCloud.single('photo'), (req, res, next) => {
 .catch(e => next(e))
 })
 
-router.get('/item/:listId', (req, res, next) => {
-  Item.find({listId: req.params.listId})
+router.get('/item/:categoryId', (req, res, next) => {
+  Item.find({categoryId: req.params.categoryId})
   .then(data => res.status(200).json(data))
   .catch(e => next(e))
 }) 

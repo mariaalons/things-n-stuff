@@ -4,30 +4,27 @@ import Private from './Private'
 class ItemForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { listId: '', name: '', description:'' };
+    this.state = { categoryId: '', name: '', description:'' };
     this.service = new Private();
   }
 
   handleFormSubmit = (event) => {
-    event.preventDefault();
-    const listId = this.props.listid;
-    
-    const name = this.state.name;
-    const description = this.state.description;
-    const photo = this.state.photo;
+  event.preventDefault();
+  const categoryId = this.props.categoryid;
+  const name = this.state.name;
+  const description = this.state.description;
+  const photo = this.state.photo;
 
-
-    this.service.item(listId, name, description, photo)
-    .then( response => {
-        this.setState({
-            listId: "",
-          
-            name:"", 
-            description: "",
-            photo: null
-        });
+  this.service.item(categoryId, name, description, photo)
+    .then(response => {
+      this.setState({
+        categoryId: "",
+        name: "",
+        description: "",
+        photo: null
+      });
     })
-    .catch( error => console.log(error) )
+    .catch(error => console.log(error))
   }
 
   handleChange = (event) => {  

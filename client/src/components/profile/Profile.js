@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { DragDropContext } from 'react-beautiful-dnd';
+
 import Auth from '../auth/Auth'
 import Lists from './Lists'
 import ListForm from './ListForm'
@@ -37,16 +39,22 @@ class Profile extends Component {
     const hidden = !this.state.hidden
     this.setState({hidden:hidden})
   }
+  onDragEnd = () => {
+   
+  };
   render() {
     this.fetchUser()
   
       return (
-  
-          <div>
+        <DragDropContext
+        onDragEnd={this.onDragEnd}>
+         <div>
           <button onClick={() => this.toggleForm()}>Create new list</button>
          <div hidden={this.state.hidden}><ListForm toggleForm={() => this.toggleForm()} userInSession={this.state.loggedInUser} getUser={this.getTheUser}/></div>
-          <Lists/>  
+          <Lists className="list-box"/>  
           </div> 
+      </DragDropContext>
+       
    
     )
 }

@@ -3,6 +3,7 @@ const Schema   = mongoose.Schema;
 
 const listSchema = new Schema({
   userId: String,
+  categoriesId: [],
   name: String,
   icon: String
 }, {

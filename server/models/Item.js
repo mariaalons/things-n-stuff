@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const itemSchema = new Schema({
-  listId: String,
-  categoryId: {type: String, default:"category"},
+  categoryId: String,
   name: String,
   description: String,
   image: {type:String, default:""}

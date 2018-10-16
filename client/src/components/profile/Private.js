@@ -16,10 +16,9 @@ class Private {
     .then(response => { 
       return response.data})
   }
-  item = (listId, categoryId, name, description, image) => {
+  item = (categoryId, name, description, image) => {
     const formData = new FormData();
     formData.append("photo", image)
-    formData.append("listId", listId)
     formData.append("categoryId", categoryId)
     formData.append("name", name)
     formData.append("description", description)
@@ -27,8 +26,8 @@ class Private {
     .then(response => {
       return response.data})
   }
-  showItem = (listId, categoryId) => {
-    return this.service.get(`/item/${listId}`)
+  showItem = (categoryId) => {
+    return this.service.get(`/item/${categoryId}`)
     .then(response => { 
       return response.data})
   }

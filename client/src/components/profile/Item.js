@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Draggable  } from 'react-beautiful-dnd';
 import Private from './Private'
 
 class Items extends Component {
@@ -9,10 +10,11 @@ class Items extends Component {
   }
 
   componentWillMount() {
-    this.service.showItem(this.props.listid, this.props.categoryId)
+    this.service.showItem(this.props.categoryid)
       .then(res => {  
         this.setState({ item: [...res]});
       })
+      console.log(this.props)
   }
 
 
@@ -20,18 +22,26 @@ class Items extends Component {
     return (
       this.state.item ?
         <div>
-          {this.state.item.map(item => {
+
+          {this.state.item.map((item, index) => {
             return (
-             
-              <div key={item.name}>
-                <h3>{item.name}</h3>
-                <img src={item.image} alt={item.name} />
-                <p>{item.description}</p>
-              </div>
-              
+               <Draggable key={item._id} draggableId={item._id} index={index}>
+                {(provided, snapshot) => (
+                  <div
+                    ref={provided.innerRef}
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}>
+                    <h3>{item.name}</h3>
+                    <img src={item.image} alt={item.name} />
+                    <p>{item.description}</p>
+                  </div>
+                )}
+              </Draggable>
+
             )
           })
           }
+
         </div>
         : <p>Loading..</p>
     )
