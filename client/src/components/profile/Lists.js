@@ -8,10 +8,23 @@ import Category from './Category'
 class Lists extends Component {
   constructor(props) {
     super(props);
-    this.state = { list : null, hidden:{}};
+    this.state = { list : null, hidden:{}, refresh: false};
     this.service = new Private();
   }
 
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ ...this.state, refresh: nextProps["refresh"] })
+    this.service.showList()
+      .then(res => {
+        const list = [...res]
+        const hidden = {};
+        list.forEach(e => hidden[e._id] = true)
+        this.setState({ list , hidden});
+      })
+
+  }
+ 
   componentDidMount() {
     this.service.showList()
       .then(res => {
@@ -40,7 +53,7 @@ class Lists extends Component {
               <div key={list._id} >
                   <h2>{list.name}</h2>
                   <span>{list.icon}</span>
-                <Category listid={list._id}/>
+                <Category refresh={this.state.refresh} listid={list._id}/>
                 <button onClick={() => this.toggleForm(list._id)}>Add new category</button>
                 <div hidden={this.state.hidden[list._id]}><CategoryForm toggleForm={() => this.toggleForm(list._id)} listid={list._id} /></div>
                 </div>

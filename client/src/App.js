@@ -56,10 +56,13 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
-            <Switch>
-            <Route exact path='/profile' render={() => <Profile getUser={this.getTheUser} userInSession={this.state.loggedInUser}/>}/>
-            </Switch>
+            
           </header>
+          <div>
+          <Switch>
+            <Route exact path='/profile' render={() => <Profile getUser={this.getTheUser} userInSession={this.state.loggedInUser}/>}/>
+            </Switch> 
+          </div>
         </div>
       );
     } else {

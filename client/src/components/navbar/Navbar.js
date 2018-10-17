@@ -2,14 +2,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../auth/Auth';
-import Private from '../profile/Private';
 
 class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = { loggedInUser: null };
     this.service = new Auth();
-    this.service = new Private();
   }
 
   componentWillReceiveProps(nextProps) {

@@ -9,6 +9,15 @@ class Items extends Component {
     this.service = new Private();
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ ...this.state, refresh: nextProps["refresh"] })
+    this.service.showItem(this.props.categoryid)
+      .then(res => {  
+        this.setState({ item: [...res]});
+      })
+
+  }  
+
   componentWillMount() {
     this.service.showItem(this.props.categoryid)
       .then(res => {  
@@ -32,7 +41,7 @@ class Items extends Component {
                     {...provided.dragHandleProps}
                     >
                     <h3>{item.name}</h3>
-                    <img src={item.image} alt={item.name} />
+                    <img style={{width:100, height:100}} src={item.image} alt={item.name} />
                     <p>{item.description}</p>
                   </div>
                 

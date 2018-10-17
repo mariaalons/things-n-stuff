@@ -11,6 +11,17 @@ class Categories extends Component {
     this.service = new Private();
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ ...this.state, refresh: nextProps["refresh"] })
+    this.service.showCategory(this.props.listid)
+      .then(res => {  
+        const categories = [...res]
+        const hidden = {};
+        categories.forEach(e => hidden[e._id] = true)
+        this.setState({ categories , hidden});
+      });
+
+  } 
   componentWillMount() {
     this.service.showCategory(this.props.listid)
       .then(res => {  
@@ -48,7 +59,7 @@ class Categories extends Component {
                         <div>
                      <span>{categories.icon}</span>
                 <h3 style={{color : 'red'}}>{categories.name}</h3>
-                <Items categoryid={categories._id}/>
+                <Items refresh={this.state.refresh} categoryid={categories._id}/>
                 </div>
                 </div>
              

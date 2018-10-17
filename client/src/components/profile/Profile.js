@@ -14,6 +14,7 @@ class Profile extends Component {
     super(props);
     this.state = { loggedInUser: null ,
     hidden:true,
+    refresh: false
     
   };
     this.route = new Private();
@@ -50,10 +51,15 @@ class Profile extends Component {
  
 
   onDragEnd = (result) => {
+    const { source, destination } = result;
+    source.droppableId = destination.droppableId
     let itemId = result.draggableId
     let newCategoryId = result.destination.droppableId;
     this.route.updateCategory(itemId,newCategoryId)
-    
+    //window.location.reload()
+    let refresh= !this.state.refresh
+   this.setState({refresh})
+  
 
   }
 
@@ -67,7 +73,7 @@ class Profile extends Component {
          <div>
           <button onClick={() => this.toggleForm()}>Create new list</button>
          <div hidden={this.state.hidden}><ListForm toggleForm={() => this.toggleForm()} userInSession={this.state.loggedInUser} getUser={this.getTheUser}/></div>
-          <Lists className="list-box"/>  
+          <Lists refresh={this.state.refresh} className="list-box"/>  
           </div> 
       </DragDropContext>
        
