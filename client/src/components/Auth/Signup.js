@@ -47,22 +47,24 @@ class Signup extends Component {
         <h3>Welcome! create your account</h3>
 
         <form onSubmit={this.handleFormSubmit}>
-          <fieldset>
+          <div className="field">
             <label>Username:</label>
-            <input type="text" name="username" value={this.state.username} onChange={ e => this.handleChange(e)}/>
-          </fieldset>
-          <fieldset>
+            <div class="control">
+            <input className="input is-primary" type="text" name="username" value={this.state.username} onChange={ e => this.handleChange(e)}/>
+            </div>
+            </div>
+          <div className="field">
             <label>Email:</label>
-            <input type="email" name="email" value={this.state.email} onChange={ e => this.handleChange(e)}/>
-          </fieldset>
-          <fieldset>
+            <input className="input is-primary" type="email" name="email" value={this.state.email} onChange={ e => this.handleChange(e)}/>
+          </div>
+          <div className="field">
             <label>Password:</label>
-            <input type="password" name="password" value={this.state.password} onChange={ e => this.handleChange(e)} />
-          </fieldset>
-          <fieldset>
+            <input className="input is-primary" type="password" name="password" value={this.state.password} onChange={ e => this.handleChange(e)} />
+          </div>
+          <div className="field">
           <input type="file" name="photo" value={this.state.image} onChange={ e => this.handleChangeFile(e)}/>
-          </fieldset>
-          <input type="submit" value="Sign up" />
+          </div>
+          <input className="button is-primary" type="submit" value="Sign up" />
         </form>
       </div>
     )

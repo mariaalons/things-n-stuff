@@ -81,8 +81,20 @@ router.get('/category/:listId', (req, res, next) => {
   .catch(e => next(e))
 }) 
 
+router.delete('/category/:categoryId', (req, res, next) => {
+  Category.findByIdAndRemove(req.params.categoryId)
+  .then(data => res.status(200).json(data))
+  .catch(e => next(e))
+}) 
+
 router.put('/item/:itemId', (req, res, next) => {
   Item.findByIdAndUpdate(req.params.itemId,{"categoryId": req.body.categoryId})
+  .then(data => res.status(200).json(data))
+  .catch(e => next(e))
+}) 
+
+router.delete('/item/:itemId', (req, res, next) => {
+  Item.findByIdAndRemove(req.params.itemId)
   .then(data => res.status(200).json(data))
   .catch(e => next(e))
 }) 

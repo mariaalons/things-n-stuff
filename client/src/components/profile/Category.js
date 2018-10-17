@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 import Items from './Item'
 import ItemForm from './ItemForm'
+import IconButton from '@material-ui/core/IconButton';
+import SvgIcon from '@material-ui/core/SvgIcon';
 import Private from './Private'
 
 class Categories extends Component {
@@ -41,15 +43,20 @@ class Categories extends Component {
     this.setState({ hidden: _hidden })
   }
 
+  handleClick(id) {
+    this.service.deleteCategory(id)
+   
+  }
+
 
 
   render() {
     return (
       this.state.categories ?
-        <div>
+        <div className="columns is-desktop">
           {this.state.categories.map(categories => {
             return (
-              <div key={categories._id}>
+              <div className="column" key={categories._id}>
               <Droppable droppableId={categories._id}>
                     {(provided, snapshot) => (
                       <div ref={provided.innerRef} {...provided.droppableProps}>
@@ -67,16 +74,17 @@ class Categories extends Component {
                 )}
                 
                   </Droppable>
+                  <IconButton onClick={() => this.handleClick(categories._id)} aria-label="Delete">
+                            <SvgIcon>
+                              <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
+                            </SvgIcon>
+                          </IconButton>
                   <button onClick={() => this.toggleForm(categories._id)}>Add new Item</button>
                    <div hidden={this.state.hidden[categories._id]}><ItemForm toggleForm={() => this.toggleForm(categories._id)} categoryid={categories._id}/></div>
                    </div>
-            )
-    
-              
-            
+            ) 
           })
           }
-         
         </div>
       
         : <p>Loading..</p>

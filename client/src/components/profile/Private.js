@@ -49,6 +49,20 @@ class Private {
     .then(response => { 
       return response.data})
   }
+
+  deleteItem = (itemId) => {
+    return this.service.delete(`/item/${itemId}`)
+    .then(res => {
+      return res.data
+    })
+  }
+
+  deleteCategory = (categoryId) => {
+    return this.service.delete(`/category/${categoryId}`)
+    .then(res => {
+      return res.data
+    })
+  }
 }
 
 

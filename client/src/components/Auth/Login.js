@@ -43,17 +43,17 @@ class Login extends Component {
       <h3>Login</h3>
 
       <form onSubmit={this.handleFormSubmit}>
-        <fieldset>
+        <div className="field">
           <label>Username:</label>
-          <input type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
-        </fieldset>
+          <input className="input is-primary" type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
+        </div>
 
-        <fieldset>
+        <div className="field">
           <label>Password:</label>
-          <input type="password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
-        </fieldset>
+          <input className="input is-primary" type="password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
+        </div>
 
-        <input type="submit" value="Login" />
+        <input className="button is-primary" type="submit" value="Login" />
       </form>
 
       <h1>{this.state.error ? 'Error' : ''}</h1>

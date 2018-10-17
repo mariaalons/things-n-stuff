@@ -61,7 +61,7 @@ class App extends Component {
           <div>
           <Switch>
             <Route exact path='/profile' render={() => <Profile getUser={this.getTheUser} userInSession={this.state.loggedInUser}/>}/>
-            </Switch> 
+          </Switch> 
           </div>
         </div>
       );

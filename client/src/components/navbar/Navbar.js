@@ -21,23 +21,36 @@ class Navbar extends Component {
   render() {
     if (this.state.loggedInUser) {
       return (
-        <nav className="nav-style">
-          <div>
-            <a onClick={this.handleLogout}>Logout</a>
-            <Link to='/profile'>profile</Link>
+        <nav className="navbar is-primary">
+          <div className='navbar-start'>
+          <Link className="navbar-item" to='/'>Home</Link>
+          <Link className="navbar-item" to='/profile'>Profile</Link>
+            
           </div>
-
-          <h2>Hi there {this.state.loggedInUser.username}</h2>
-          <img style={{height:100, width:100}} src={this.state.loggedInUser.image} alt={this.state.loggedInUser.username}/>
-        </nav>
+          <div className="navbar-end">
+          <div className="buttons navbar-item">
+          <a className="button is-light" onClick={this.handleLogout}>Logout</a>
+          <figure>
+          <img className="is-rounded" src={this.state.loggedInUser.image} alt={this.state.loggedInUser.username}/>
+          </figure>
+          </div>
+          </div>
+          </nav>
       )
     } else {
       return (
         <div>
-          <nav className="nav-style">
-            <div>
-            <Link to='/signup'>Signup</Link>
-            <Link to='/login'>Login</Link>
+          <nav className="navbar is-light">
+          <div className='navbar-start'>
+          <Link className="navbar-item"  to='/'>Home</Link>
+            
+          </div>
+            <div className="navbar-end">
+            <div className="buttons navbar-item">
+            <Link className="button is-primary" to='/signup'>Signup</Link>
+          
+            <Link className="button is-dark" to='/login'>Login</Link>
+            </div>
             </div>
           </nav>
         </div>
