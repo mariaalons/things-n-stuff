@@ -16,6 +16,13 @@ class Private {
     .then(response => { 
       return response.data})
   }
+
+  deleteList = (listId) => {
+    return this.service.delete(`/list/${listId}`)
+    .then(response => { 
+      return response.data})
+  }
+
   item = (categoryId, name, description, image) => {
     const formData = new FormData();
     formData.append("photo", image)

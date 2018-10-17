@@ -23,6 +23,7 @@ class ItemForm extends Component {
         description: "",
         photo: null
       });
+      window.location.reload()
     })
     .catch(error => console.log(error))
   }
@@ -35,6 +36,13 @@ class ItemForm extends Component {
   handleChangeFile = (event) => {  
     const value= event.target.files[0]
     this.setState({'photo': value});
+  }
+
+  toggleForm(id){
+    const _hidden = { ...this.state.hidden }
+
+    _hidden[id] = !_hidden[id]
+    this.setState({ hidden: _hidden })
   }
       
 
@@ -55,7 +63,7 @@ class ItemForm extends Component {
           <input type="file" name="photo" value={this.state.image} onChange={ e => this.handleChangeFile(e)}/>
           </fieldset>
       
-          <input type="submit" value="Create" />
+          <input onClick={() =>this.props.toggleForm()} type="submit" value="Create" />
         </form>
       </div>
     )

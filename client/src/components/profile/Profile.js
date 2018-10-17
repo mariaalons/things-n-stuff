@@ -55,7 +55,6 @@ class Profile extends Component {
     let itemId = result.draggableId
     let newCategoryId = result.destination.droppableId;
     this.route.updateCategory(itemId,newCategoryId)
-    //window.location.reload()
     let refresh= !this.state.refresh
    this.setState({refresh})
   
@@ -73,10 +72,11 @@ class Profile extends Component {
          <div>
            <h1>This are your lists {this.props.userInSession.username}</h1>
            <img src={this.props.userInSession.image} alt=''/>
+           <button className="button is-primary">Sugest</button>
            </div>
-          <button onClick={() => this.toggleForm()}>Create new list</button>
+          <button className="button is-light" onClick={() => this.toggleForm()}>Create new list</button>
          <div hidden={this.state.hidden}><ListForm toggleForm={() => this.toggleForm()} userInSession={this.state.loggedInUser} getUser={this.getTheUser}/></div>
-          <div className='column is-one-quarter-fullhd' style={{backgroundColor: 'gray', margin:10}}>
+          <div className='column is-one-quarter-fullhd'>
           <Lists refresh={this.state.refresh} className="list-box"/>  
           </div>
           </div> 

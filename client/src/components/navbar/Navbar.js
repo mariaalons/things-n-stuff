@@ -1,6 +1,10 @@
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import InputBase from '@material-ui/core/InputBase';
+import SearchIcon from '@material-ui/icons/Search';
 import Auth from '../auth/Auth';
 
 class Navbar extends Component {
@@ -25,7 +29,18 @@ class Navbar extends Component {
           <div className='navbar-start'>
           <Link className="navbar-item" to='/'>Home</Link>
           <Link className="navbar-item" to='/profile'>Profile</Link>
-            
+       
+         
+          <div/>
+          <div>
+            <div>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder="Search…"
+            />
+          </div>
+       
           </div>
           <div className="navbar-end">
           <div className="buttons navbar-item">

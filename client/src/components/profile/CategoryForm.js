@@ -22,6 +22,7 @@ class CategoryForm extends Component {
             icon: "",
         });
     })
+    window.location.reload()
     .catch( error => console.log(error) )
   }
 

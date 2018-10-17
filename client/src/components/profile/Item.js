@@ -29,11 +29,12 @@ class Items extends Component {
       .then(res => {  
         this.setState({ item: [...res]});
       })
+      
   }
 
   handleClick(id) {
     this.service.deleteItem(id)
-   
+    window.location.reload()
   }
 
 

@@ -10,8 +10,6 @@ class Auth {
   }
 
   signup = (username, password, email, image) => {
-    console.log(image)
-
     const formData = new FormData();
     formData.append("username", username)
     formData.append("email", email)

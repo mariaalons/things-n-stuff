@@ -26,6 +26,12 @@ router.post('/list', (req, res, next) => {
 .catch(e => next(e))
 })
 
+router.delete('/list/:listId', (req, res, next) => {
+  List.findByIdAndDelete(req.params.listId)
+  .then(data => res.status(200).json(data))
+  .catch(e => next(e))
+}) 
+
 router.get('/list', (req, res, next) => {
   List.find({userId: req.user._id})
   .then(data => res.status(200).json(data))
