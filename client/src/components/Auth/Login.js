@@ -53,7 +53,7 @@ class Login extends Component {
           <input className="input is-primary" type="password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
         </div>
 
-        <input className="button is-primary" type="submit" value="Login" />
+        <input  className="button is-primary" type="submit" value="Login" />
       </form>
 
       <h1>{this.state.error ? 'Error' : ''}</h1>

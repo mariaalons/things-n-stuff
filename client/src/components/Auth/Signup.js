@@ -49,7 +49,7 @@ class Signup extends Component {
         <form onSubmit={this.handleFormSubmit}>
           <div className="field">
             <label>Username:</label>
-            <div class="control">
+            <div className="control">
             <input className="input is-primary" type="text" name="username" value={this.state.username} onChange={ e => this.handleChange(e)}/>
             </div>
             </div>

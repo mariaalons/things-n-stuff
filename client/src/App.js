@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import 'bulma/css/bulma.css';
-import './App.css';
-import { Switch, Route } from 'react-router-dom';
+import './App.scss';
+import { Switch, Route,  Redirect } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Signup from './components/auth/Signup';
+import Home from './components/Home/Home';
 import Login from './components/auth/Login';
 import Auth from './components/auth/Auth';
 import Private from './components/profile/Private';
@@ -61,6 +62,7 @@ class App extends Component {
           <div>
           <Switch>
             <Route exact path='/profile' render={() => <Profile getUser={this.getTheUser} userInSession={this.state.loggedInUser}/>}/>
+            <Route exact path='/' render={() => <Home/>}/>
           </Switch> 
           </div>
         </div>
@@ -75,6 +77,9 @@ class App extends Component {
               <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
             </Switch>
           </header>
+          <div>
+          <Route exact path='/' render={() => <Home/>}/>
+          </div>
         </div>
       );
     }

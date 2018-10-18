@@ -51,19 +51,19 @@ class ItemForm extends Component {
       <div>
         <h3>Add an item to this list</h3>
         <form onSubmit={this.handleFormSubmit}>
-          <fieldset>
+          <div className="field">
             <label>name:</label>
-            <input type="text" name="name" value={this.state.name} onChange={ e => this.handleChange(e)}/>
-          </fieldset>
-          <fieldset>
+            <input className="input is-primary" type="text" name="name" value={this.state.name} onChange={ e => this.handleChange(e)}/>
+          </div>
+          <div className="field">
             <label>description:</label>
-            <input type="text" name="description" value={this.state.description} onChange={ e => this.handleChange(e)}/>
-          </fieldset>
-          <fieldset>
-          <input type="file" name="photo" value={this.state.image} onChange={ e => this.handleChangeFile(e)}/>
-          </fieldset>
+            <input className="input is-primary" type="text" name="description" value={this.state.description} onChange={ e => this.handleChange(e)}/>
+          </div>
+          <div className="field">
+          <input className="input is-primary" type="file" name="photo" value={this.state.image} onChange={ e => this.handleChangeFile(e)}/>
+          </div>
       
-          <input onClick={() =>this.props.toggleForm()} type="submit" value="Create" />
+          <input className="button is-primary" onClick={() =>this.props.toggleForm()} type="submit" value="Create" />
         </form>
       </div>
     )

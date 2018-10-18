@@ -1,10 +1,10 @@
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
+import Avatar from '@material-ui/core/Avatar';
 import Auth from '../auth/Auth';
 
 class Navbar extends Component {
@@ -27,27 +27,29 @@ class Navbar extends Component {
       return (
         <nav className="navbar is-primary">
           <div className='navbar-start'>
+          <img className="logo" style={{height:45, margin:10}} alt='logo' src='https://res.cloudinary.com/dr1df4kwt/image/upload/v1539847265/folder-name/push-pin.png'/>
           <Link className="navbar-item" to='/'>Home</Link>
-          <Link className="navbar-item" to='/profile'>Profile</Link>
-       
          
+          <Link className="navbar-item" to='/profile'>Profile</Link>
           <div/>
           <div>
-            <div>
-              <SearchIcon />
-            </div>
+            <div className="navbar-item">
+           
+            
             <InputBase
               placeholder="Search…"
             />
+            <IconButton>
+            <SearchIcon />
+            </IconButton>
           </div>
-       
+          </div>
           </div>
           <div className="navbar-end">
           <div className="buttons navbar-item">
-          <a className="button is-light" onClick={this.handleLogout}>Logout</a>
-          <figure>
-          <img className="is-rounded" src={this.state.loggedInUser.image} alt={this.state.loggedInUser.username}/>
-          </figure>
+          <button className="button is-light" onClick={this.handleLogout}>Logout</button>
+        
+          <Avatar alt={this.state.loggedInUser.username}  src={this.state.loggedInUser.image}  className='avatar' />
           </div>
           </div>
           </nav>
@@ -55,9 +57,11 @@ class Navbar extends Component {
     } else {
       return (
         <div>
-          <nav className="navbar is-light">
+          <nav className="navbar navbar-1">
+
           <div className='navbar-start'>
-          <Link className="navbar-item"  to='/'>Home</Link>
+          <img className="logo" style={{height:45, margin:10}} alt='logo' src='https://res.cloudinary.com/dr1df4kwt/image/upload/v1539847265/folder-name/push-pin2.png'/>
+          <Link className="navbar-item" to='/'>Home</Link>
             
           </div>
             <div className="navbar-end">

@@ -1,0 +1,25 @@
+.home{
+    background-image: url('https://res.cloudinary.com/dr1df4kwt/image/upload/v1539848369/home.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    .column {
+      align-self: center;
+      img {
+        margin: 50px;
+      }
+      h2 {
+        font-size: 40px;
+        color: whitesmoke;
+        margin-bottom: 200px;
+      }
+    }
+}
+
+.navbar-1 {
+  background-color: #e99ea5c9;
+}
+
+
+
+

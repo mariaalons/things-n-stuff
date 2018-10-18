@@ -37,14 +37,14 @@ class Form extends Component {
       <div>
         <h3>Time to create lists</h3>
         <form onSubmit={this.handleFormSubmit}>
-          <fieldset>
+          <div className="field">
             <label>name:</label>
-            <input type="text" name="name" value={this.state.name} onChange={ e => this.handleChange(e)}/>
-          </fieldset>
-          <fieldset>
+            <input className="input is-primary" type="text" name="name" value={this.state.name} onChange={ e => this.handleChange(e)}/>
+          </div>
+          <div className="field">
             <label>icon:</label>
-            <input type="icon" name="icon" value={this.state.icon} onChange={ e => this.handleChange(e)}/>
-          </fieldset>
+            <input className="input is-primary" type="icon" name="icon" value={this.state.icon} onChange={ e => this.handleChange(e)}/>
+          </div>
           <input onClick={() =>this.props.toggleForm()} type="submit" value="Create" />
         </form>
       </div>

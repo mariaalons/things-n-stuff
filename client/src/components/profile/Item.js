@@ -41,7 +41,7 @@ class Items extends Component {
   render() {
     return (
       this.state.item ?
-        <div style={{ width: 150 }}>
+        <div style={{margin:15}}>
 
           {this.state.item.map((item, index) => {
             return (
