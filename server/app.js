@@ -16,7 +16,7 @@ const flash = require("connect-flash");
 
 
 mongoose
-  .connect('mongodb://localhost/server', {useNewUrlParser: true})
+  .connect(process.env.MLAB, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -69,5 +69,11 @@ const authRoutes = require('./routes/auth');
 const privateRoutes = require('./routes/private');
 app.use('/api/auth', authRoutes);
 app.use('/api/profile', privateRoutes);
+
+app.use((req, res, next) => {
+  // If no routes match, send them the React HTML.
+  res.sendFile(__dirname + "/public/index.html");
+});
+
 
 module.exports = app;
