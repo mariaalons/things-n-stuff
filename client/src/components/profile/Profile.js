@@ -85,16 +85,12 @@ class Profile extends Component {
         
         <DragDropContext
         onDragEnd={this.onDragEnd}>
-         <div>
+         <div className='profile-content'>
          <div>
            <h1>This are your lists {this.props.userInSession.username}</h1>
            <img className="round" src={this.props.userInSession.image} alt={this.props.userInSession.usename}/>
            </div>
-           <button className="button is-primary" onClick={()=>this.handleClick()}>Explore</button>
-          <button className="button is-light" onClick={() => this.toggleForm()}>Create new list</button>
-         <div hidden={this.state.hidden}><ListForm toggleForm={() => this.toggleForm()} userInSession={this.state.loggedInUser} getUser={this.getTheUser}/></div>
-          <div className='column is-one-quarter-fullhd'>
-          <div>
+           <div>
            { this.state.explore ? 
            <div>
                <Card>
@@ -110,6 +106,10 @@ class Profile extends Component {
            : ""}
     
           </div>
+           <button className="button is-primary" onClick={()=>this.handleClick()}>Explore</button>
+          <button className="button is-light" onClick={() => this.toggleForm()}>Create new list</button>
+         <div hidden={this.state.hidden}><ListForm toggleForm={() => this.toggleForm()} userInSession={this.state.loggedInUser} getUser={this.getTheUser}/></div>
+          <div className='column is-one-quarter-fullhd'>
           <Lists refresh={this.state.refresh} className="list-box"/>  
           </div>
           </div> 
