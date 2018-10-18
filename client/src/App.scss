@@ -24,8 +24,59 @@
   background-color: #e99ea66e;
   display: flex;
   flex-direction: column;
+  padding: 25px;
+  align-content: space-between;
+  button {
+    width: 250px;
+    align-self: center;
+    margin: 15px;
+    flex-direction: row;
+  }
+  .just-profile{
+    h1{
+      font-size: 50px;
+    }
+    img{
+      border-radius: 150px;
+    }
+  }
 }
 
+.list-column {
+  border-radius: 14px;
+  background-image: url('https://stmed.net/sites/default/files/geometry-wallpapers-25220-9353194.jpg');
+  display: cover;
+  margin-top: 20px;
+  .list-name{
+    background-color: rgba(250, 235, 215, 0.76);
+    border-radius: 12px;
+    display: flex;
+    h2 {
+     margin-left: 600px;
+      font-size: 30px;
+     text-align: center;
+    }
+  }
+}
 
+.category-box{
+  height: 400px;
+  background-color: #abe6dc9d;
+  border-radius: 10px;
+  min-width: 200px;
+  .category-text{
+    background-color: rgba(245, 245, 248, 0.904);
+    display: flex;
+    height: 40px;
+    margin-top: 10px;
+    padding-top: 5px;
+  
+    h3 {
+      margin-left: 35px;
+      font-size: 20px;
+     text-align: center;
+    }
+  }
+} 
 
 

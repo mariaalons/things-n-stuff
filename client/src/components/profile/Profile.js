@@ -86,9 +86,10 @@ class Profile extends Component {
         <DragDropContext
         onDragEnd={this.onDragEnd}>
          <div className='profile-content'>
-         <div>
-           <h1>This are your lists {this.props.userInSession.username}</h1>
+         <div className='just-profile'>
+           <h1>Hi {this.props.userInSession.username} !! </h1>
            <img className="round" src={this.props.userInSession.image} alt={this.props.userInSession.usename}/>
+           <p>Create lists and add stuff, now you can count with things'n'stuff for all the things that you want to remember but always forgot</p>
            </div>
            <div>
            { this.state.explore ? 

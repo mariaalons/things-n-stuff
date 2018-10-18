@@ -60,14 +60,15 @@ class Categories extends Component {
                 <Droppable droppableId={categories._id}>
                   {(provided, snapshot) => (
                     <div ref={provided.innerRef} {...provided.droppableProps}>
-                      <div style={{
-                        backgroundColor: provided.isDragging ? 'green' : 'lightblue', height: 700, margin: 20
+                      <div className='category-box' style={{
+                        backgroundColor: provided.isDragging ? 'green' : '#abe6dc9d;', height: 700, margin: 20
                       }}>
-                        <div>
-                          <span>{categories.icon}</span>
-                          <h3 style={{ color: 'red' }}>{categories.name}</h3>
+                        <div className='category-text'>
+                        
+                          <h3><span>{categories.icon}</span>{categories.name}</h3>
+                          </div>
                           <Items refresh={this.state.refresh} categoryid={categories._id} />
-                        </div>
+                        
                       </div>
 
                     </div>

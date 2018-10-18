@@ -54,9 +54,12 @@ class Lists extends Component {
         <div>
           {this.state.list.map(list => {
             return (
-              <div key={list._id} >
-                  <h2>{list.name}</h2>
-                  <span>{list.icon}</span>
+              <div className='list-column' key={list._id} >
+              <div className="list-name">
+              
+                  <h2> <span>{list.icon}</span> {list.name}</h2>
+                 
+                  </div>
                 <Category refresh={this.state.refresh} listid={list._id}/>
                 <button onClick={() => this.toggleForm(list._id)}>Add new category</button>
                 <div hidden={this.state.hidden[list._id]}><CategoryForm toggleForm={() => this.toggleForm(list._id)} listid={list._id} /></div>
