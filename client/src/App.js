@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'bulma/css/bulma.css';
 import './App.scss';
-import { Switch, Route,  Redirect } from 'react-router-dom';
+import { Switch, Route} from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Signup from './components/auth/Signup';
 import Home from './components/Home/Home';

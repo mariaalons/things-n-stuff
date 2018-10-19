@@ -41,8 +41,10 @@ class Login extends Component {
 
   render() {
   if (this.state.redirect) return <Redirect to='/'/>
-    return (<div>
-      <h3>Login</h3>
+    return (
+    <div className='auth-form'>
+    <div className='auth-login'>
+      <h3>We miss you!! <br></br>Login</h3>
 
       <form onSubmit={this.handleFormSubmit}>
         <div className="field">
@@ -55,10 +57,11 @@ class Login extends Component {
           <input className="input is-primary" type="password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
         </div>
 
-        <input  className="button is-primary" type="submit" value="Login" />
+        <input  className="button is-new" type="submit" value="Login" />
       </form>
 
       <h1>{this.state.error ? 'Error' : ''}</h1>
+      </div>
     </div>)
   }
 }

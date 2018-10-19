@@ -34,7 +34,7 @@ class CategoryForm extends Component {
 
   render() {
     return(
-      <div>
+      <div className='inside-form'>
         <h3>Add a Category</h3>
         <form onSubmit={this.handleFormSubmit}>
           <div className='field'>
@@ -45,7 +45,7 @@ class CategoryForm extends Component {
             <label>icon:</label>
             <input className="input is-primary" type="icon" name="icon" value={this.state.icon} onChange={ e => this.handleChange(e)}/>
           </div>
-          <input className="button is-primary"  onClick={() =>this.props.toggleForm()} type="submit" value="Create" />
+          <input className="button is-new"  onClick={() =>this.props.toggleForm()} type="submit" value="Create" />
         </form>
       </div>
     )

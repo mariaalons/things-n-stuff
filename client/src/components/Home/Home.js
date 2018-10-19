@@ -8,7 +8,7 @@ class Home extends Component {
         <img  alt='logo' src='https://res.cloudinary.com/dr1df4kwt/image/upload/v1539847265/folder-name/push-pin2.png'/>
         </div>
         <div className='column'>
-        <h2>A Storage Unit for your mind</h2>
+        <h2>A Storage Unit For Your Mind</h2>
         </div>
       </div>
     );

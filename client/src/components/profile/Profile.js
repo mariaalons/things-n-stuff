@@ -3,8 +3,6 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import axios from 'axios';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-
-import CardMedia from '@material-ui/core/CardMedia';
 import Auth from '../auth/Auth'
 import Lists from './Lists'
 import ListForm from './ListForm'
@@ -61,11 +59,8 @@ class Profile extends Component {
     this.route.updateCategory(itemId,newCategoryId)
     let refresh= !this.state.refresh
    this.setState({refresh})
-  
-
   }
 
-  //https://api.themoviedb.org/3/movie/55?api_key=59387977c6cfbf0bdc57342d0185a34d
 
   handleClick = () =>{
     let movieNumber = Math.floor(Math.random() * 600) + 1;
@@ -80,45 +75,46 @@ class Profile extends Component {
 
   render() {
     this.fetchUser()
-    let basePath= 'http://image.tmdb.org/t/p/w185//'
-      return (
-        
-        <DragDropContext
+    let basePath = 'http://image.tmdb.org/t/p/w185//'
+    return (
+
+      <DragDropContext
         onDragEnd={this.onDragEnd}>
-         <div className='profile-content'>
-         <div className='just-profile'>
-           <h1>Hi {this.props.userInSession.username} !! </h1>
-           <img className="round" src={this.props.userInSession.image} alt={this.props.userInSession.usename}/>
-           <p>Create lists and add stuff, now you can count with things'n'stuff for all the things that you want to remember but always forgot</p>
-           </div>
-           <div>
-           { this.state.explore ? 
-           <div>
-               <Card>
-               <CardContent>
-           <h2>{this.state.explore.original_title}</h2> 
-           <CardMedia>
-           <img src={basePath + this.state.explore.poster_path} alt={this.state.explore.original_title}/>
-           </CardMedia>
-           <p>{this.state.explore.overview}</p>
-           </CardContent>
-           </Card>
-           </div>
-           : ""}
-    
+        <div className='profile-content'>
+          <div className='just-profile'>
+            <img className="round" src={this.props.userInSession.image} alt={this.props.userInSession.usename} />
+            <div className='profile-info'>
+              <h1>Hello {this.props.userInSession.username} !! </h1>
+              <p>You can create lists and add stuff, now you can count with things'n'stuff for all the things that you want to remember but you always forget.</p>
+            </div>
           </div>
-           <button className="button is-primary" onClick={()=>this.handleClick()}>Explore</button>
+          <div>
+            {this.state.explore ?
+              <div>
+                <Card className='card-adapt'>
+                  <CardContent>
+                  <div className='card-img'>
+                   <img src={basePath + this.state.explore.poster_path} alt={this.state.explore.original_title} />
+                   <p> <h3>{this.state.explore.original_title}</h3>{this.state.explore.overview}</p>
+                  </div>
+                  </CardContent>
+                </Card>
+              </div>
+              : ""}
+
+          </div>
+          <button className="button is-new" onClick={() => this.handleClick()}>Explore</button>
           <button className="button is-light" onClick={() => this.toggleForm()}>Create new list</button>
-         <div hidden={this.state.hidden}><ListForm toggleForm={() => this.toggleForm()} userInSession={this.state.loggedInUser} getUser={this.getTheUser}/></div>
+          <div hidden={this.state.hidden}><ListForm toggleForm={() => this.toggleForm()} userInSession={this.state.loggedInUser} getUser={this.getTheUser} /></div>
           <div className='column is-one-quarter-fullhd'>
-          <Lists refresh={this.state.refresh} className="list-box"/>  
+            <Lists refresh={this.state.refresh} className="list-box" />
           </div>
-          </div> 
+        </div>
       </DragDropContext>
-     
-   
+
+
     )
-}
+  }
 }
 
 

@@ -46,8 +46,9 @@ class Signup extends Component {
   render() {
     if (this.state.redirect) return <Redirect to='/'/>
     return(
-      <div>
-        <h3>Welcome! create your account</h3>
+      <div className='auth-form'>
+       <div className='auth-content'>
+        <h3>Welcome to Things 'n' Stuff! <br></br> create your account</h3>
 
         <form onSubmit={this.handleFormSubmit}>
           <div className="field">
@@ -67,8 +68,9 @@ class Signup extends Component {
           <div className="field">
           <input type="file" name="photo" value={this.state.image} onChange={ e => this.handleChangeFile(e)}/>
           </div>
-          <input className="button is-primary" type="submit" value="Sign up" />
+          <input className="button is-new" type="submit" value="Sign up" />
         </form>
+      </div>
       </div>
     )
   }

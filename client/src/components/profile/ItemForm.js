@@ -48,7 +48,7 @@ class ItemForm extends Component {
 
   render() {
     return(
-      <div>
+      <div className='inside-form'>
         <h3>Add an item to this list</h3>
         <form onSubmit={this.handleFormSubmit}>
           <div className="field">
@@ -63,7 +63,7 @@ class ItemForm extends Component {
           <input className="input is-primary" type="file" name="photo" value={this.state.image} onChange={ e => this.handleChangeFile(e)}/>
           </div>
       
-          <input className="button is-primary" onClick={() =>this.props.toggleForm()} type="submit" value="Create" />
+          <input className="button is-new" onClick={() =>this.props.toggleForm()} type="submit" value="Create" />
         </form>
       </div>
     )

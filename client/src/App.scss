@@ -4,28 +4,126 @@
     display: flex;
     flex-direction: column;
     .column {
+      margin-top: 100px;
       align-self: center;
       img {
         margin: 50px;
       }
       h2 {
-        font-size: 40px;
+        font-size: 45px;
+        font-weight: bold;
         color: whitesmoke;
-        margin-bottom: 200px;
+        margin-bottom: 280px;
       }
     }
 }
+.auth-login{
+  margin-bottom: 100px;
+  width: 400px;
+  background-color: rgba(216, 235, 252, 0.623);
+  border-radius: 15px;
+  text-align: center;
+  padding: 35px;
+  margin-top: 150px;
+  margin-left: 500px;
+  margin-bottom: 380px;
+  h3{
+    font-size: 25px;
+  }
+}
+
+.auth-form {
+  background-image: url('https://res.cloudinary.com/dr1df4kwt/image/upload/v1539848369/home.jpg');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  .auth-content{
+    width: 400px;
+    background-color: rgba(216, 235, 252, 0.623);
+    border-radius: 15px;
+    text-align: center;
+    padding: 35px;
+    margin-top: 150px;
+    margin-left: 500px;
+    margin-bottom: 280px;
+    h3{
+      font-size: 25px;
+    }
+  }
+}
+
+.navbar-2{
+  background-color: #4a9597e7;
+  .letter{
+  color:aliceblue;
+   font-weight: bold;
+  }
+  .avatar{
+    vertical-align: middle;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-bottom: -9px;
+    margin-top: 10px;
+    margin-right: 20px;
+    img{
+      border-radius: 50%;
+    }
+  }
+  .is-dark{
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: -9px;
+  }
+  
+  }
+
+
+.is-new{
+  background-color: #4a9597e7;
+  color: aliceblue;
+}
+
+.inside-form{
+  width: 400px;
+  background-color: rgba(216, 235, 252, 0.623);
+  border-radius: 15px;
+  text-align: center;
+  padding: 15px;
+  h3{
+    font-size: 20px;
+  }
+}
+
+.list-f{
+  width: 600px;
+  border-radius: 15px;
+  background-color: rgba(216, 235, 252, 0.075);
+  text-align: center;
+  padding: 15px;
+  margin-left: 400px; 
+  h3{
+    font-size: 20px;
+  }
+}
+
 
 .navbar-1 {
   background-color: #e99ea5c9;
+  img {
+    padding-left: 20px;
+    padding-right: 20px; 
+  }
+  .letter2{
+    font-weight: bold;
+  }
 }
 
 .profile-content {
   background-color: #e99ea66e;
-  display: flex;
-  flex-direction: column;
   padding: 25px;
   align-content: space-between;
+  min-height: 825px;
   button {
     width: 250px;
     align-self: center;
@@ -33,11 +131,19 @@
     flex-direction: row;
   }
   .just-profile{
+    display: flex;
+    margin: 25px;
+    .profile-info{
+      margin-left: 25px;
+    }
     h1{
       font-size: 50px;
+      flex-direction: row;
     }
     img{
-      border-radius: 150px;
+      border-radius: 50%;
+      width: 250px;
+      height: 250px;
     }
   }
 }
@@ -47,6 +153,11 @@
   background-image: url('https://stmed.net/sites/default/files/geometry-wallpapers-25220-9353194.jpg');
   display: cover;
   margin-top: 20px;
+  .delete-btn{
+    width: 40px;
+    border-radius: 10px;
+    background-color: rgba(250, 235, 215, 0.658);
+    }
   .list-name{
     background-color: rgba(250, 235, 215, 0.76);
     border-radius: 12px;
@@ -57,13 +168,20 @@
      text-align: center;
     }
   }
+
+  
+}
+
+.hidden {
+  display: none;
 }
 
 .category-box{
-  height: 400px;
+  height: 600px;
   background-color: #abe6dc9d;
   border-radius: 10px;
   min-width: 200px;
+  overflow-y: scroll;
   .category-text{
     background-color: rgba(245, 245, 248, 0.904);
     display: flex;
@@ -79,4 +197,61 @@
   }
 } 
 
+.item-content{
+  width: 350px;
+  margin: 5px;
+  h3{
+    font-size: 20px;
+  }
+}
+.card-adapt{
+  margin-right:600px;
+  .card-img {
+    display: flex;
+    padding: 1px;
+    h3 {
+      margin: 3px;
+      font-weight: bold;
+    }
+    p {
+      margin-left: 3px;
+    }
+  }
+  img {
+    display: cover;
+    width: 8%;
+    height: 8%;
+    margin-top: 15px;
+    margin-right: 5px;
+  }
+}
+
+.card-m {
+  button {
+    margin: 0px;
+  }
+  border-radius: 14px;
+  .card-img {
+    display: flex;
+    padding: 1px;
+    h3 {
+      margin: 3px;
+      font-weight: bold;
+    }
+    p {
+      margin-left: 3px;
+    }
+  }
+  img {
+    display: cover;
+    width: 30%;
+    height: 30%;
+    margin-top: 15px;
+    margin-right: 5px;
+  }
+}
+
+.list-form{
+  background-color: azure;
+}
 

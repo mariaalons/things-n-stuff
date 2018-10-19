@@ -34,7 +34,7 @@ class Form extends Component {
 
   render() {
     return(
-      <div>
+      <div className='list-f'>
         <h3>Time to create lists</h3>
         <form onSubmit={this.handleFormSubmit}>
           <div className="field">
@@ -45,7 +45,7 @@ class Form extends Component {
             <label>icon:</label>
             <input className="input is-primary" type="icon" name="icon" value={this.state.icon} onChange={ e => this.handleChange(e)}/>
           </div>
-          <input onClick={() =>this.props.toggleForm()} type="submit" value="Create" />
+          <input className="button is-new" onClick={() =>this.props.toggleForm()} type="submit" value="Create" />
         </form>
       </div>
     )
